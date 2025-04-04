@@ -1,36 +1,34 @@
 import sqlite3
 
-# Connect to or create the data base file
-conn = sqlite3.connect('pocketlawyer.db')
+# Set your full absolute path here, or adjust as needed
+DB_PATH = r"C:\Users\Bryan Harris\PycharmProjects\404Brainnotfound-Coughacks-2025\Pocket-Lawyer\data_tracking\database\pocketlawyer.db"
+
+# Connect to SQLite database (creates file if it doesn't exist)
+conn = sqlite3.connect(DB_PATH)
 cursor = conn.cursor()
 
-
-# pii keywords table
+# Create pii_keywords table
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS pii_keywords (
-    id INTGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY,
     keyword TEXT NOT NULL,
     pii_type TEXT NOT NULL,
     risk_level TEXT
 );
 """)
 
-
-# Detected pii table
-
+# Create detected_pii table
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS detected_pii (
     id INTEGER PRIMARY KEY,
     document_id INTEGER NOT NULL,
     pii_type TEXT NOT NULL,
     context_snippet TEXT,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (document_id) REFERENCES tos_documents(id)
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 """)
 
-# Create privacy_flags
-
+# Create privacy_flags table (optional)
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS privacy_flags (
     id INTEGER PRIMARY KEY,
@@ -40,8 +38,8 @@ CREATE TABLE IF NOT EXISTS privacy_flags (
 );
 """)
 
-# Save changes and close the connection
+# Finalize
 conn.commit()
 conn.close()
 
-print("PII tracking database initialized.")
+print("✅ PII tracking database initialized successfully.")
