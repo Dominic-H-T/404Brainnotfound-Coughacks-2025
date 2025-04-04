@@ -1,2 +1,8 @@
 
 /* Style for Pocket Layer UI */
+
+h1 {
+    color: rgb(123, 25, 44);
+    text-align: center;
+    text-decoration: underline;
+}
