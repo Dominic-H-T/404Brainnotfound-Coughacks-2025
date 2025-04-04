@@ -112,7 +112,7 @@ pocket-lawyer/
 |--------------------|----------------------------|
 | Database Architect | Bryan (You!)               |
 | Backend Developer  | [Name]                     |
-| Frontend Developer | [Name]                     |
+| Frontend Developer | Morgan                     |
 | Chrome Extension   | [Name]                     |
 | Pitch & Docs       | [Name]                     |
 
