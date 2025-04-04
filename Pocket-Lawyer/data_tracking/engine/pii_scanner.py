@@ -6,3 +6,7 @@ def load_pii_keywords():
     cursor = conn.cursor()
 
     cursor.execute("SELECT keyword,")
+    keywords = cursor.fetchall()
+
+    conn.close()
+    return keywords # List of tuples (keywords, pii_type)
