@@ -24,8 +24,9 @@ keywords = [
 # Insert each Keyword (if not already there)
 for keyword, pii_type, risk in keywords:
     cursor.execute("""
-    INSERT OR INGNORE INTO pii_keywords (keyword, pii_type, risk_level
-""", (keyword, pii_type, risk))
+        INSERT OR IGNORE INTO pii_keywords (keyword, pii_type, risk_level)
+        VALUES (?, ?, ?)
+    """, (keyword, pii_type, risk))
 
 # Commit and close
 conn.commit()
