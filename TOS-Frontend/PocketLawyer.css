@@ -1,8 +1,25 @@
 
 /* Style for Pocket Layer UI */
 
+body {
+    background-color: #2b4c65;
+    font-family: 'Raleway', sans-serif;
+    display: grid;
+    place-items: center;
+}
+
 h1 {
-    color: rgb(123, 25, 44);
+    color: white;
     text-align: center;
     text-decoration: underline;
+}
+
+.simple-tos {
+    background-color: #00000055;
+    color: white;
+    box-sizing: border-box;
+    padding: 40px;
+    width: 50%;
+    height: 100vh;
+    border-radius: 8px;
 }
